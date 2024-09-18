@@ -9,11 +9,11 @@ const AuthCard = () => {
         <div className="w-full md:w-1/2 p-4 md:p-8">
           <img src="/auth.png" alt="Authentication" className="w-full h-auto max-h-48 md:max-h-full object-contain" />
         </div>
-        <div className="w-full md:w-1/2 p-4 md:p-8 flex flex-col justify-center">
-          <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6">Let's get you logged in</h2>
+        <div className="w-full md:w-1/2 p-4 md:p-8 flex flex-col justify-center items-center">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-center">Let's get you logged in</h2>
           <button
             onClick={authenticateWithGitHub}
-            className="text-white text-lg font-semibold hover:text-green-300 transition duration-300 flex items-center justify-center md:justify-start underline"
+            className="text-white text-lg font-semibold hover:text-green-300 transition duration-300 flex items-center justify-center underline"
           >
             <FontAwesomeIcon icon={faGithub} className="mr-2" />
             Continue with GitHub

@@ -3,7 +3,6 @@ import axios from 'axios';
 const GITHUB_API_URL = import.meta.env.VITE_GITHUB_API_URL;
 const CLIENT_ID = import.meta.env.VITE_GITHUB_CLIENT_ID;
 const REDIRECT_URI = import.meta.env.VITE_GITHUB_REDIRECT_URI;
-const SERVER_URL = import.meta.env.VITE_SERVER_URL;
 
 export const authenticateWithGitHub = () => {
   const authUrl = `https://github.com/login/oauth/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&scope=repo`;
@@ -12,10 +11,19 @@ export const authenticateWithGitHub = () => {
 
 export const handleAuthCallback = async (code: string) => {
   try {
-    const response = await axios.post(`${SERVER_URL}/api/github/callback`, { code });
+    const response = await axios.post('https://github.com/login/oauth/access_token', {
+      client_id: import.meta.env.VITE_GITHUB_CLIENT_ID,
+      client_secret: import.meta.env.VITE_GITHUB_CLIENT_SECRET,
+      code: code
+    }, {
+      headers: {
+        Accept: 'application/json'
+      }
+    });
+
     const { access_token } = response.data;
     if (!access_token) {
-      throw new Error('No access token received from server');
+      throw new Error('No access token received from GitHub');
     }
     localStorage.setItem('github_token', access_token);
     console.log('Token stored in localStorage:', access_token);
