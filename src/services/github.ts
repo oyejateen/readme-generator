@@ -12,7 +12,12 @@ export const authenticateWithGitHub = () => {
 
 export const handleAuthCallback = async (code: string) => {
   try {
-    const response = await axios.post(`${SERVER_URL}/api/github/callback`, { code });
+    const response = await axios.post(`${SERVER_URL}/api/github/callback`, { code }, {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      withCredentials: true
+    });
     const { access_token } = response.data;
     if (!access_token) {
       throw new Error('No access token received from server');
