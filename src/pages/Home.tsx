@@ -36,7 +36,7 @@ const Home = () => {
           <Link to="/" className="text-green-300 text-2xl font-bold">README Genie</Link>
           <a href="https://buymeacoffee.com/heyjateen" target="_blank" rel="noopener noreferrer" className="bg-green-300 text-gray-900 px-4 py-2 rounded-full hover:bg-green-400 transition duration-300 flex items-center">
             <FontAwesomeIcon icon={faCoffee} className="mr-2" />
-            Buy me a coffee
+            Donate
           </a>
         </div>
       </nav>
@@ -112,7 +112,7 @@ const Home = () => {
           <h2 className="text-4xl font-bold mb-12">Our Contributors</h2>
           <div className="flex justify-center space-x-8 mb-12">
             {[
-              { name: 'Jateen', role: 'Lead Developer', image: 'https://avatars.githubusercontent.com/u/75193966?v=4' },
+              { name: 'Jateen', role: 'Dev & Design', image: 'https://avatars.githubusercontent.com/u/75193966?v=4' },
             ].map((contributor, index) => (
               <div key={index} className="flex flex-col items-center">
                 <img src={contributor.image} alt={contributor.name} className="w-24 h-24 rounded-full mb-4" />
@@ -135,7 +135,7 @@ const Home = () => {
             <a href="https://linkedin.com/in/oyejateen" className="text-green-300 hover:text-green-400 text-2xl"><FontAwesomeIcon icon={faLinkedin} /></a>
           </div>
           <p>
-            Crafted by <span className="text-green-300 font-semibold">heyjateen</span> & <span className="text-green-300 font-semibold">Typescript</span>
+            Crafted by <span className="text-green-300 font-semibold">heyjateen</span> with <span className="text-green-300 font-semibold">Typescript</span>
           </p>
         </div>
       </footer>
