@@ -1,5 +1,5 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Button from './Button';
 import { faCopy, faDownload, faRedo, faCodeCommit } from '@fortawesome/free-solid-svg-icons';
 import { commitReadme } from '../services/github';
 
@@ -47,35 +47,19 @@ const ReadmeViewer: React.FC<ReadmeViewerProps> = ({ readme, repoFullName }) => 
       <div className="bg-gray-800 p-4 rounded-md">
         <pre className="whitespace-pre-wrap text-sm">{readme}</pre>
       </div>
-      <div className="flex space-x-4">
-        <button
-          onClick={handleCopy}
-          className="bg-green-300 text-gray-900 px-4 py-2 rounded-full font-semibold flex items-center"
-        >
-          <FontAwesomeIcon icon={faCopy} className="mr-2" />
+      <div className="flex flex-wrap gap-2">
+        <Button onClick={handleCopy} icon={faCopy} color="green">
           Copy
-        </button>
-        <button
-          onClick={handleDownload}
-          className="bg-blue-300 text-gray-900 px-4 py-2 rounded-full font-semibold flex items-center"
-        >
-          <FontAwesomeIcon icon={faDownload} className="mr-2" />
+        </Button>
+        <Button onClick={handleDownload} icon={faDownload} color="blue">
           Download
-        </button>
-        <button
-          onClick={handleRegenerate}
-          className="bg-yellow-300 text-gray-900 px-4 py-2 rounded-full font-semibold flex items-center"
-        >
-          <FontAwesomeIcon icon={faRedo} className="mr-2" />
+        </Button>
+        <Button onClick={handleRegenerate} icon={faRedo} color="yellow">
           Regenerate
-        </button>
-        <button
-          onClick={handleCommit}
-          className="bg-purple-300 text-gray-900 px-4 py-2 rounded-full font-semibold flex items-center"
-        >
-          <FontAwesomeIcon icon={faCodeCommit} className="mr-2" />
+        </Button>
+        <Button onClick={handleCommit} icon={faCodeCommit} color="purple">
           Commit to GitHub
-        </button>
+        </Button>
       </div>
     </div>
   );
