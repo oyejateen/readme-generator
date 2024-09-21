@@ -87,7 +87,6 @@ To run README Genie on your local machine, follow these steps:
 1. Clone the backend repository:
    ```
    git clone https://github.com/oyejateen/readme-genie-script.git
-   cd readme-genie-script
    ```
 
 2. Install dependencies:
